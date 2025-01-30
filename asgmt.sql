@@ -1,9 +1,9 @@
 
-#                                                  <<   SQL Basics  >>
+#													<<   SQL Basics  >>
 #                                                << Assignment Questions >>
 
 /*
-														Que-1 
+	Que-1 
 
  Create a table called employees with the following structure?
 : emp_id (integer, should not be NULL and should be a primary key)Q
@@ -13,7 +13,7 @@
 : salary (decimal, with a default value of 30,000).
 Write the SQL query to create the above table with all constraints.
 */
-#												Ans-1
+#	Ans-1
 
 CREATE TABLE Employees (
     emp_id INTEGER NOT NULL PRIMARY KEY,
@@ -24,11 +24,11 @@ CREATE TABLE Employees (
 );
 
 
-#													Que-2 
+#	Que-2 
 
 # Explain the purpose of constraints and how they help maintain data integrity in a database. Provide examples of common types of constraints.
 
-#													Ans-2
+#	Ans-2
 /*
 Purpose of Constraints in Databases:-
 Constraints in databases are rules or limitations that are applied to data to ensure its integrity and accuracy. They act as safeguards, preventing the entry of invalid or inconsistent data, and maintaining the reliability of the information stored within the database.
@@ -79,10 +79,10 @@ The Check constraint ensures that only customers aged 18 or older are entered in
 */
 
 /*
-														Que-3
+	Que-3
 Why would you apply the NOT NULL constraint to a column? Can a primary key contain NULL values? Justify your answer.
 
-														Ans-3
+	Ans-3
 
 When we use primary key constraint then it does not contain neither null values nor duplicate values. Using primary key we get 
 unique and not null values. But when we want not null values while duplicate values is possible then we would apply the NOT NULL
@@ -90,11 +90,11 @@ constraint to a column.
 */
 
 /*
-														Que-4
+	Que-4
 Explain the steps and SQL commands used to add or remove constraints on an existing table. 
 Provide an example for both adding and removing a constraint.
 
-														Ans-4
+	Ans-4
 
 Adding Constraints
 The `ALTER TABLE` statement is used for adding constraints.
@@ -209,10 +209,11 @@ ALTER COLUMN salary DROP DEFAULT;
 */
 
 /*
-                                             Que-5
+	Que-5
 Explain the consequences of attempting to insert, update, or delete data in a way that violates constraints.
 Provide an example of an error message that might occur when violating a constraint.
-                                            Ans-5
+	
+    Ans-5
 
 Consequences of Violating Constraints in Data Manipulation
 Constraints in a database are like rules that ensure data integrity and consistency. They define what data is allowed in a table and how different tables relate to each other. Attempting to insert, update, or delete data in a way that violates these constraints can have serious consequences:
@@ -250,7 +251,7 @@ In conclusion, constraints are essential for maintaining data integrity and cons
 */
 
 
-#														Que-6
+#	Que-6
 #You created a products table without constraints as follows:
 CREATE TABLE products (
 	product_id INT,
@@ -261,7 +262,7 @@ Now, you realise that?
 : The product_id should be a primary keyQ
 : The price should have a default value of 50.00
 */
-#														Ans-6
+#	Ans-6
 
 # To add constraints we use command Alter Table:
 alter table products
@@ -269,7 +270,7 @@ add constraint primary key (product_id);
 alter table products
 alter column price set default 50;
 
-#                                                    Que-7
+#	Que-7
 # You have two tables:
 -- 1.
 create table Students(
@@ -293,12 +294,12 @@ insert into Classes values
 (103, 'History');
 
 # Write a query to fetch the student_name and class_name for each student using an INNER JOIN.
-# Ans-7
+#	Ans-7
 SELECT s.student_name, c.class_name
 FROM students s
 INNER JOIN classes c ON s.class_id = c.class_id;
 
-#                                               Que-8 
+#	Que-8 
 # Consider the following three tables:
 -- 1.
 CREATE TABLE Orders (
@@ -334,7 +335,7 @@ Write a query that shows all order_id, customer_name, and product_name, ensuring
 listed even if they are not associated with an order 
 Hint: (use INNER JOIN and LEFT JOIN)
 */
-#                                              Ans-8
+#	Ans-8
 SELECT
     o.order_id,
     c.customer_name,
@@ -352,7 +353,7 @@ ORDER BY
 
 
 
-#                                        Que-9
+#	Que-9
 # Given the following tables:
 
 CREATE TABLE Sales (
@@ -373,7 +374,7 @@ INSERT INTO Products (product_id, product_name) VALUES
 (102, 'Phone');
 # Write a query to find the total sales amount for each product using an INNER JOIN and the SUM() function.
 
-#                                                 Ans-9
+#	Ans-9
 SELECT
     p.product_name,
     SUM(od.quantity * s.amount) AS total_sales_amount
@@ -388,7 +389,7 @@ GROUP BY
 
 
 
-#                                  Que-10
+#	Que-10
 #  You are given three tables:
 
 CREATE TABLE Orders (
@@ -422,7 +423,7 @@ INSERT INTO Order_Details (order_id, product_id, quantity) VALUES
 
 # Write a query to display the order_id, customer_name, and the quantity of products ordered by each customer using an INNER JOIN between all three tables.
 
-#                                            Ans-10
+#	Ans-10
 SELECT
     o.order_id,
     c.customer_name,
@@ -439,10 +440,10 @@ ORDER BY
 
 
 use sakila;
-#                                    <<<  SQL Commands  >>>
+#													<<<  SQL Commands  >>>
 
-# Que-1 Identify the primary keys and foreign keys in maven movies db. Discuss the differences
-# Ans-1
+#	Que-1 Identify the primary keys and foreign keys in maven movies db. Discuss the differences
+#	Ans-1
 
 -- Identify Primary Keys and Foreign Keys in Maven Movies DB
 -- Tables and their Primary Keys:
@@ -473,144 +474,144 @@ ON rc.constraint_name = kcu.constraint_name
 WHERE rc.referenced_table_name = 'film';
 
 
-# Que-2  List all details of actors.alter
-# Ans-2
+#	Que-2  List all details of actors.alter
+#	Ans-2
 SELECT actor_id, first_name, last_name, last_update
 FROM actor;
 
-# Que-3 List all customer information from DB.alter
-# Ans-3 
+#	Que-3 List all customer information from DB.alter
+#	Ans-3 
 select customer_id, store_id, first_name, last_name, email, address_id, active, create_date, last_update
 from customer;
 
 
-# Que-4 -List different countries.
-# Ans-4
+#	Que-4 -List different countries.
+#	Ans-4
 SELECT DISTINCT country
 FROM country;
 
 
 
-# Que-5 -Display all active customers.
-# Ans-5
+#	Que-5 -Display all active customers.
+#	Ans-5
 SELECT *
 FROM customer
 WHERE active = 1;  -- Or WHERE active = TRUE; 
 
-# Que-6 -List of all rental IDs for customer with ID 1.
-# Ans-6
+#	Que-6 -List of all rental IDs for customer with ID 1.
+#	Ans-6
 SELECT rental_id
 FROM rental
 WHERE customer_id = 1;
 
-# Que-7 - Display all the films whose rental duration is greater than 5 .
-# Ans-7
+#	Que-7 - Display all the films whose rental duration is greater than 5 .
+#	Ans-7
 SELECT *  -- Or specify the columns you want to see (e.g., film_id, title, description)
 FROM film
 WHERE rental_duration > 5;
 
-# Que-8 - List the total number of films whose replacement cost is greater than $15 and less than $20.
-# Ans-8
+#	Que-8 - List the total number of films whose replacement cost is greater than $15 and less than $20.
+#	Ans-8
 SELECT COUNT(*) AS total_films
 FROM film
 WHERE replacement_cost BETWEEN 15 AND 20;
 
-# Que-9 - Display the count of unique first names of actors.
-# Ans-9
+#	Que-9 - Display the count of unique first names of actors.
+#	Ans-9
 SELECT COUNT(DISTINCT first_name) AS unique_first_names
 FROM actor;
 
-# Que-10- Display the first 10 records from the customer table .
-# Ans-10
+#	Que-10- Display the first 10 records from the customer table .
+#	Ans-10
 SELECT *
 FROM customer
 LIMIT 10;
 
-# Que-11 - Display the first 3 records from the customer table whose first name starts with ‘b’.
-# Ans-11
+#	Que-11 - Display the first 3 records from the customer table whose first name starts with ‘b’.
+#	Ans-11
 SELECT *  -- Or specify the columns you want to retrieve
 FROM customer
 WHERE first_name LIKE 'b%'
 LIMIT 3;
 
-# Que-12 -Display the names of the first 5 movies which are rated as ‘G’.
-# Ans-12
+#	Que-12 -Display the names of the first 5 movies which are rated as ‘G’.
+#	Ans-12
 SELECT title
 FROM film
 WHERE rating = 'G'
 LIMIT 5;
 
-# Que-13-Find all customers whose first name starts with "a".
-# Ans-13
+#	Que-13-Find all customers whose first name starts with "a".
+#	Ans-13
 SELECT *  -- Or list specific columns if you don't need all of them
 FROM customer
 WHERE first_name LIKE 'a%';
 
-# Que-14- Find all customers whose first name ends with "a".
-# Ans-14
+#	Que-14- Find all customers whose first name ends with "a".
+#	Ans-14
 SELECT *  -- Or specify the columns you want to retrieve
 FROM customer
 WHERE first_name LIKE '%a';
 
-# Que-15- Display the list of first 4 cities which start and end with ‘a’ .
-# Ans-15
+#	Que-15- Display the list of first 4 cities which start and end with ‘a’ .
+#	Ans-15
 SELECT city
 FROM city
 WHERE city LIKE 'a%a'
 LIMIT 4;
 
-# Que-16- Find all customers whose first name have "NI" in any position.
-# Ans-16
+#	Que-16- Find all customers whose first name have "NI" in any position.
+#	Ans-16
 SELECT *  -- Or list specific columns if you don't need all of them
 FROM customer
 WHERE first_name LIKE '%ni%';
 
-# Que-17- Find all customers whose first name have "r" in the second position .
-# Ans-17
+#	Que-17- Find all customers whose first name have "r" in the second position .
+#	Ans-17
 SELECT *  -- Or specify the columns you want
 FROM customer
 WHERE first_name LIKE '_r%';
 
-# Que-18 - Find all customers whose first name starts with "a" and are at least 5 characters in length.
-# Ans-18
+#	Que-18 - Find all customers whose first name starts with "a" and are at least 5 characters in length.
+#	Ans-18
 SELECT *  -- Or specify the columns you want
 FROM customer
 WHERE first_name LIKE 'a%' AND LENGTH(first_name) >= 5;
 
-# Que-19- Find all customers whose first name starts with "a" and ends with "o".
-# Ans-19
+#	Que-19- Find all customers whose first name starts with "a" and ends with "o".
+#	Ans-19
 SELECT *  -- Or specify the columns you want
 FROM customer
 WHERE first_name LIKE 'a%o';
 
-# Que-20 - Get the films with pg and pg-13 rating using IN operator.
-# Ans-20
+#	Que-20 - Get the films with pg and pg-13 rating using IN operator.
+#	Ans-20
 SELECT *  -- Or specify the columns you want (e.g., film_id, title, rating)
 FROM film
 WHERE rating IN ('PG', 'PG-13');
 
-# Que-21 - Get the films with length between 50 to 100 using between operator.
-# Ans-21
+#	Que-21 - Get the films with length between 50 to 100 using between operator.
+#	Ans-21
 SELECT *  -- Or specify the columns you want (e.g., film_id, title, length)
 FROM film
 WHERE length BETWEEN 50 AND 100;
 
-# Que-22 - Get the top 50 actors using limit operator.
-# Ans-22
+#	Que-22 - Get the top 50 actors using limit operator.
+#	Ans-22
 SELECT *  -- Or specify the columns you want (e.g., actor_id, first_name, last_name)
 FROM actor
 LIMIT 50;
 
-# Que-23 - Get the distinct film ids from inventory table.
-# Ans-23
+#	Que-23 - Get the distinct film ids from inventory table.
+#	Ans-23
 SELECT DISTINCT film_id
 FROM inventory;
 
 
 
-#                                     <<<  Functions  >>>
+#													<<<  Functions  >>>
 
-#                                 Basic Aggregate Functions:
+#												Basic Aggregate Functions:
 
 
 /*
@@ -631,7 +632,7 @@ SELECT AVG(rental_duration) AS average_rental_duration
 FROM film;
 
  
-                                  # String Functions:
+#												  String Functions:
  
  
  /*
@@ -651,7 +652,8 @@ Hint: Employ the MONTH() function.
 SELECT rental_id, MONTH(rental_date) AS rental_month
 FROM rental;
 
-                                               # GROUP BY:
+
+#													GROUP BY:
 
 
 /*
@@ -706,7 +708,7 @@ GROUP BY l.name;
 
 
 
-#                                          <<<  Joins  >>>
+#													<<<  Joins  >>>
 
 
 
@@ -767,7 +769,7 @@ ORDER BY c.last_name, c.first_name; -- Optional: Order by customer name
 
 
 
-#                                  <<<  Advanced Joins and GROUP BY:  >>>
+#												<<<  Advanced Joins and GROUP BY:  >>>
 /*
 Question 13:
 Display the top 5 rented movies along with the number of times they've been rented.
@@ -799,12 +801,12 @@ HAVING COUNT(DISTINCT s.store_id) = 2;  -- Ensure they've rented from BOTH store
 
 
 
-#                                 <<<   Windows Function:  >>>
+#												<<<   Windows Function:  >>>
 
 
 
-# Que-1. Rank the customers based on the total amount they've spent on rentals.
-# Ans-1
+#	Que-1. Rank the customers based on the total amount they've spent on rentals.
+#	Ans-1
 SELECT c.customer_id, c.first_name, c.last_name, SUM(p.amount) AS total_spent,
        RANK() OVER (ORDER BY SUM(p.amount) DESC) AS customer_rank
 FROM customer AS c
@@ -814,8 +816,8 @@ GROUP BY c.customer_id, c.first_name, c.last_name
 ORDER BY total_spent DESC;  -- Optional: Order by total spent
 
 
-# Que-2. Calculate the cumulative revenue generated by each film over time.
-# Ans-2
+#	Que-2. Calculate the cumulative revenue generated by each film over time.
+#	Ans-2
 SELECT
     f.title,
     r.rental_date,  -- Or a suitable date column (e.g., payment_date)
@@ -832,8 +834,8 @@ ORDER BY
     f.title, r.rental_date;
 
 
-# Que-3. Determine the average rental duration for each film, considering films with similar lengths.
-# Ans-3
+#	Que-3. Determine the average rental duration for each film, considering films with similar lengths.
+#	Ans-3
 WITH FilmLengths AS (
     SELECT
         f.film_id,
@@ -871,8 +873,8 @@ AverageRentalDuration AS (
 SELECT * FROM AverageRentalDuration;
 
 
-# Que-4. Identify the top 3 films in each category based on their rental counts.
-# Ans-4
+#	Que-4. Identify the top 3 films in each category based on their rental counts.
+#	Ans-4
 WITH FilmRentalCounts AS (
     SELECT
         f.title,
@@ -904,8 +906,8 @@ ORDER BY
     category_name, rental_count DESC;
 
 
-# Que-5. Calculate the difference in rental counts between each customer's total rentals and the average rentals across all customers.
-# Ans-5
+#	Que-5. Calculate the difference in rental counts between each customer's total rentals and the average rentals across all customers.
+#	Ans-5
 WITH CustomerRentalCounts AS (
     SELECT
         c.customer_id,
@@ -938,8 +940,8 @@ ORDER BY
     rental_difference DESC; -- Optional: Order by the difference
 
 
-# Que-6. Find the monthly revenue trend for the entire rental store over time.
-# Ans-6
+#	Que-6. Find the monthly revenue trend for the entire rental store over time.
+#	Ans-6
 SELECT
     DATE_TRUNC('month', r.rental_date) AS rental_month,  -- Extract the month and year
     SUM(p.amount) AS monthly_revenue
@@ -953,8 +955,8 @@ ORDER BY
     rental_month;
 
 
-# Que-7. Identify the customers whose total spending on rentals falls within the top 20% of all customers.
-# Ans-7
+#	Que-7. Identify the customers whose total spending on rentals falls within the top 20% of all customers.
+#	Ans-7
 WITH CustomerSpending AS (
     SELECT
         c.customer_id,
@@ -989,8 +991,8 @@ ORDER BY
     cs.total_spending DESC;
 
 
-# Que-8. Calculate the running total of rentals per category, ordered by rental count.
-# Ans-8
+#	Que-8. Calculate the running total of rentals per category, ordered by rental count.
+#	Ans-8
 WITH CategoryRentalCounts AS (
     SELECT
         c.name AS category_name,
@@ -1019,8 +1021,8 @@ RunningTotal AS (
 SELECT * FROM RunningTotal;
 
 
-# Que-9. Find the films that have been rented less than the average rental count for their respective categories.
-# Ans-9
+#	Que-9. Find the films that have been rented less than the average rental count for their respective categories.
+#	Ans-9
 WITH FilmCategoryRentals AS (
     SELECT
         f.film_id,
@@ -1064,8 +1066,8 @@ ORDER BY
     fcr.category_name, fcr.rental_count; -- Optional: Order by category and rental count
 
 
-# Que-10. Identify the top 5 months with the highest revenue and display the revenue generated in each month.
-# Ans-10
+#	Que-10. Identify the top 5 months with the highest revenue and display the revenue generated in each month.
+#	Ans-10
 WITH MonthlyRevenue AS (
     SELECT
         DATE_TRUNC('month', r.rental_date) AS rental_month,  -- Or equivalent date truncation function
@@ -1099,8 +1101,8 @@ ORDER BY
     
     
     
-
-#                              <<<  Normalisation & CTE  >>>
+    
+#												<<<  Normalisation & CTE  >>>
 
 
 
