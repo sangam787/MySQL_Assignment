@@ -1,5 +1,5 @@
 
-#                                                  <<  SQL Basics >>
+#                                                  <<   SQL Basics  >>
 #                                                << Assignment Questions >>
 
 /*
